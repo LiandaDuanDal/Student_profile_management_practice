@@ -8,21 +8,14 @@ const router = getRouter();
 router.get('/test', (req, res) => {
     res.end('test');
 });
-router.get('index', (req, res) => {
+router.get('/index', (req, res) => {
     res.end('index');
 })
-
-
-
-
-
 // the '.js' trail can be ignore
 // Since we don't export anything in connect.js,
 // we don't need to let a var to receiced anything here.
 require('./model/connect.js');
 const Student = require('./model/user.js');
-
-
 // =========================================
 // create web server
 const app = http.createServer()
