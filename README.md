@@ -34,9 +34,10 @@ npm install http
 
 
 # Git command
+
 ```bash
 git add .
-git commit -m "3:连接数据库并根据需求设计学员信息表"
+git commit -m "3:创建router(req,res,()=>{})"
 git push origin master
 ```
 
@@ -49,3 +50,10 @@ git push origin master
  >
  >
 
+# Router module
+
+1：获取路由对象
+
+2：调用路由对象方法创建路由
+
+2：启用路由，使路由生效
