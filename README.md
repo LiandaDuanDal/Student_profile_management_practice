@@ -17,13 +17,15 @@ MongoDB
 4:创建路由并实现页面模板的呈递
 5:实现静态资源访问
 
+```bash
 1:
->makedir students
->cd student
->npm init -y
->touch app.js
+makedir students
+cd student
+npm init -y
+touch app.js
 2:
->npm install http
+npm install http
+```
 
 
 
@@ -38,3 +40,4 @@ git push origin master
 
 # start the server
  >nodemon app.js
+
