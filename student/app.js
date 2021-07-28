@@ -2,16 +2,41 @@
 const http = require('http');
 // import router module
 const getRouter = require('router');
+// get template engine
+const template = require('art-template');
+// get path module
+const path = require('path');
+// start static resource access service
+const serveStatic = require('serve-static');
+// it return a method which will be used later
+const serve = serveStatic(path.join(__dirname, 'public'));
+// =========================================
+console.log("============important info============");
+console.log("static resources dir:", path.join(__dirname, 'public'));
+
+console.log("=================END==================");
+// =========================================
+// configure the root directory of the template
+// Only need to write the name of the template now!
+template.defaults.root = path.join(__dirname, 'views');
+
 // get router obj
 const router = getRouter();
 // test the router
 // render add page
 router.get('/add', (req, res) => {
-    res.end('test');
+    // res.end('test');
+    console.log("accessing =====> /add");
+    let html = template('index.art', {});
+
+    res.end(html);
 });
 // render student list page
 router.get('/list', (req, res) => {
-    res.end('index');
+    console.log("accessing =====> /list");
+    // res.end('index');
+    let html = template('list.art', {});
+    res.end(html)
 })
 // the '.js' trail can be ignore
 // Since we don't export anything in connect.js,
@@ -31,10 +56,10 @@ app.on('request', (req, res) => {
     router(req, res, () => {
         console.log("I AM CALLED AFTER THE router(req, res) IS CALLED !!!");
     });
+    serve(req, res, () => {
+        console.log(" static resource accessing......");
+    });
 })
-
-
-
 // listen the applicaiton port
 app.listen(80);
 console.log('connected successfully!');

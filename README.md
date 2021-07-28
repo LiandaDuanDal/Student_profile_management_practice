@@ -37,7 +37,7 @@ npm install http
 
 ```bash
 git add .
-git commit -m "3:创建router(req,res,()=>{})"
+git commit -m "4:静态资源访问"
 git push origin master
 ```
 
@@ -58,8 +58,6 @@ git push origin master
 2：调用路由对象方法创建路由
 
 2：启用路由，使路由生效
-
-
 
 # Tree
 
