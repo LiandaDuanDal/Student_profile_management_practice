@@ -1,16 +1,23 @@
 # About
+```
 这是一个基于模板引擎实现的学生信息管理系统
 This is a student information management project(using tempalte engine)
+```
+
+
 
 # Front end
 Node.js
 
 # Back End 
+```
 MongoDB
+```
 
-# File structure
+
 
 # Configuration
+
 ```
 1:创建项目文件夹，生成项目描述文件
 2:创建网站服务器实现客户端课服务器端的通信
@@ -62,7 +69,7 @@ git push origin master
 # Tree
 
 ```bash
-(base) ➜  student_profile_mmanagement git:(master) ✗ tree -I "node_modules"
+(base) ➜  student_profile_mmanagement git:(master) tree -I "node_modules"
 .
 ├── README.md
 └── student
@@ -72,8 +79,12 @@ git push origin master
     │   └── user.js
     ├── package-lock.json
     ├── package.json
+    ├── public
+    │   └── css
+    │       ├── list.css
+    │       └── main.css
     └── views
-
-3 directories, 6 files
+        ├── index.art
+        └── list.art
 ```
 
