@@ -44,6 +44,7 @@ git push origin master
 
 
 # start the server
+
  >```bash
  >nodemon app.js
  >```
@@ -57,3 +58,24 @@ git push origin master
 2：调用路由对象方法创建路由
 
 2：启用路由，使路由生效
+
+
+
+# Tree
+
+```bash
+(base) ➜  student_profile_mmanagement git:(master) ✗ tree -I "node_modules"
+.
+├── README.md
+└── student
+    ├── app.js
+    ├── model
+    │   ├── connect.js
+    │   └── user.js
+    ├── package-lock.json
+    ├── package.json
+    └── views
+
+3 directories, 6 files
+```
+

@@ -5,10 +5,12 @@ const getRouter = require('router');
 // get router obj
 const router = getRouter();
 // test the router
-router.get('/test', (req, res) => {
+// render add page
+router.get('/add', (req, res) => {
     res.end('test');
 });
-router.get('/index', (req, res) => {
+// render student list page
+router.get('/list', (req, res) => {
     res.end('index');
 })
 // the '.js' trail can be ignore
