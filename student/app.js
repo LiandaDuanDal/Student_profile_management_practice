@@ -10,6 +10,8 @@ const path = require('path');
 const serveStatic = require('serve-static');
 // it return a method which will be used later
 const serve = serveStatic(path.join(__dirname, 'public'));
+// imoprt query string
+const queryString = require('querystring');
 // =========================================
 console.log("============important info============");
 console.log("static resources dir:", path.join(__dirname, 'public'));
@@ -37,7 +39,23 @@ router.get('/list', (req, res) => {
     // res.end('index');
     let html = template('list.art', {});
     res.end(html)
+});
+// ==============POST===================
+router.post('/add', (req, res) => {
+    // receive post request
+    let formData = '';
+    req.on('data', param => {
+        console.log("collecting data===>", param, "~~~~~>", formData);
+        formData += param;
+    });
+    req.on('end', () => {
+        console.log(queryString.parse(formData))
+        res.end('abc');
+    })
 })
+
+
+
 // the '.js' trail can be ignore
 // Since we don't export anything in connect.js,
 // we don't need to let a var to receiced anything here.

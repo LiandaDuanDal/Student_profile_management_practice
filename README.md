@@ -44,7 +44,7 @@ npm install http
 
 ```bash
 git add .
-git commit -m "4:静态资源访问"
+git commit -m "5:post abc"
 git push origin master
 ```
 
