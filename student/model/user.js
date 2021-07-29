@@ -6,7 +6,7 @@ const studentsSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 2,
-        maxlength: 10
+        maxlength: 100
     },
     age: {
         type: Number,

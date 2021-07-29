@@ -44,13 +44,21 @@ router.get('/list', (req, res) => {
 router.post('/add', (req, res) => {
     // receive post request
     let formData = '';
+    // begin to receive parameter
     req.on('data', param => {
         console.log("collecting data===>", param, "~~~~~>", formData);
         formData += param;
     });
-    req.on('end', () => {
-        console.log(queryString.parse(formData))
-        res.end('abc');
+    // endign receiving data
+    req.on('end', async () => {
+        console.log(queryString.parse(formData));
+        // add data to the database
+        await Student.create(queryString.parse(formData));
+        // res.end('abc');
+        res.writeHead(301, {
+            Location: '/list'
+        });
+        res.end();
     })
 })
 
