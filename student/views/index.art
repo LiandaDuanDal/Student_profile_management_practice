@@ -26,9 +26,9 @@
 			</label>
 			<label>
 				爱好: 
-				<input type="checkbox" value="0" name="hobbies"> 敲代码
-				<input type="checkbox" value="1" name="hobbies"> 打篮球
-				<input type="checkbox" value="1" name="hobbies"> 睡觉
+				<input type="checkbox" value="敲代码" name="hobbies"> 敲代码
+				<input type="checkbox" value="打篮球" name="hobbies"> 打篮球
+				<input type="checkbox" value="睡觉" name="hobbies"> 睡觉
 			</label>
 			<label>
 				所属学院: 
@@ -43,7 +43,7 @@
 				</select>
 			</label>
 			<label>
-				入学日期: <input type="date" class="normal" name="enterdate">
+				入学日期: <input type="date" class="normal" name="enterDate">
 			</label>
 			<label class="btn">
 				<input type="submit" value="提交" class="normal">

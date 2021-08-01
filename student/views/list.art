@@ -17,6 +17,24 @@
 			<th>所属学院</th>
 			<th>入学时间</th>
 		</tr>
+{{each students}}
+	<tr>
+			<th>{{$value.name}}</th>
+			<th>{{$value.age}}</th>
+			<th>{{$value.sex == '0'? '男性': '女性'}}</th>
+			<th>{{$value.email}}</th>
+			<th>{{each $value.hobbies}}
+				<span>{{$value}}</span>
+			{{/each}}
+			
+			</th>
+			<th>{{$value.college}}</th>
+			<th>{{dateformat($value.enterDate,'yyyy-mm-dd')}}</th>
+		</tr>
+
+{{/each}}
+	
 	</table>
+
 </body>
 </html>

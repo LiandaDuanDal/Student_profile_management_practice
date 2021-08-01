@@ -44,7 +44,7 @@ npm install http
 
 ```bash
 git add .
-git commit -m "5:post 完成post-add"
+git commit -m "6: 将方法导入模板"
 git push origin master
 ```
 

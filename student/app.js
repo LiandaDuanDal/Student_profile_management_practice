@@ -12,6 +12,8 @@ const serveStatic = require('serve-static');
 const serve = serveStatic(path.join(__dirname, 'public'));
 // imoprt query string
 const queryString = require('querystring');
+// import date processing package
+const dateformat = require('dateformat');
 // =========================================
 console.log("============important info============");
 console.log("static resources dir:", path.join(__dirname, 'public'));
@@ -20,8 +22,10 @@ console.log("=================END==================");
 // =========================================
 // configure the root directory of the template
 // Only need to write the name of the template now!
+// .imports.dateformat the trail name dateformate is a customized method name 
 template.defaults.root = path.join(__dirname, 'views');
-
+// import dataformat into the template
+template.defaults.imports.dateformat = dateformat;
 // get router obj
 const router = getRouter();
 // test the router
@@ -34,10 +38,20 @@ router.get('/add', (req, res) => {
     res.end(html);
 });
 // render student list page
-router.get('/list', (req, res) => {
+// 只有将函数通过async编程异步函数，才能够使用await来接收异步api返回的结果
+router.get('/list', async (req, res) => {
     console.log("accessing =====> /list");
     // res.end('index');
-    let html = template('list.art', {});
+
+    // find
+    let students = await Student.find();
+    console.log("Student.find()====>");
+    console.log(students);
+    // 
+    let html = template('list.art', {
+        students: students
+    })
+    // let html = template('list.art', {});
     res.end(html)
 });
 // ==============POST===================
