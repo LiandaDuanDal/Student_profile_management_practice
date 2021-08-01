@@ -17,13 +17,14 @@
 			<th>所属学院</th>
 			<th>入学时间</th>
 		</tr>
-{{each students}}
+			{{each students}}
 	<tr>
 			<th>{{$value.name}}</th>
 			<th>{{$value.age}}</th>
 			<th>{{$value.sex == '0'? '男性': '女性'}}</th>
 			<th>{{$value.email}}</th>
-			<th>{{each $value.hobbies}}
+			<th>
+			{{each $value.hobbies}}
 				<span>{{$value}}</span>
 			{{/each}}
 			
@@ -32,9 +33,17 @@
 			<th>{{dateformat($value.enterDate,'yyyy-mm-dd')}}</th>
 		</tr>
 
-{{/each}}
-	
+			{{/each}}
+	<tr>
+	<th>
+			<h6>
+             <a href="/add" class="btn btn-primary">添加用户</a>
+            </h6>
+			
+	</th>
+	</tr>
 	</table>
+			
 
 </body>
 </html>

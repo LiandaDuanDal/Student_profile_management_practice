@@ -1,7 +1,5 @@
 // import http module
 const http = require('http');
-// import router module
-const getRouter = require('router');
 // get template engine
 const template = require('art-template');
 // get path module
@@ -14,10 +12,13 @@ const serve = serveStatic(path.join(__dirname, 'public'));
 const queryString = require('querystring');
 // import date processing package
 const dateformat = require('dateformat');
+// 
+// import router
+const router = require('./route/index.js');
+
 // =========================================
 console.log("============important info============");
 console.log("static resources dir:", path.join(__dirname, 'public'));
-
 console.log("=================END==================");
 // =========================================
 // configure the root directory of the template
@@ -26,57 +27,9 @@ console.log("=================END==================");
 template.defaults.root = path.join(__dirname, 'views');
 // import dataformat into the template
 template.defaults.imports.dateformat = dateformat;
-// get router obj
-const router = getRouter();
+
 // test the router
 // render add page
-router.get('/add', (req, res) => {
-    // res.end('test');
-    console.log("accessing =====> /add");
-    let html = template('index.art', {});
-
-    res.end(html);
-});
-// render student list page
-// 只有将函数通过async编程异步函数，才能够使用await来接收异步api返回的结果
-router.get('/list', async (req, res) => {
-    console.log("accessing =====> /list");
-    // res.end('index');
-
-    // find
-    let students = await Student.find();
-    console.log("Student.find()====>");
-    console.log(students);
-    // 
-    let html = template('list.art', {
-        students: students
-    })
-    // let html = template('list.art', {});
-    res.end(html)
-});
-// ==============POST===================
-router.post('/add', (req, res) => {
-    // receive post request
-    let formData = '';
-    // begin to receive parameter
-    req.on('data', param => {
-        console.log("collecting data===>", param, "~~~~~>", formData);
-        formData += param;
-    });
-    // endign receiving data
-    req.on('end', async () => {
-        console.log(queryString.parse(formData));
-        // add data to the database
-        await Student.create(queryString.parse(formData));
-        // res.end('abc');
-        res.writeHead(301, {
-            Location: '/list'
-        });
-        res.end();
-    })
-})
-
-
 
 // the '.js' trail can be ignore
 // Since we don't export anything in connect.js,
